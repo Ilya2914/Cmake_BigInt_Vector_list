@@ -1,0 +1,11 @@
+build_*/
+lib/
+test*
+*.sh
+*.DS_Store
+*.exe
+*.ii
+*.s
+*.o
+/build_ninja
+build_ninja/
