@@ -86,7 +86,10 @@ void Vector<T>::push_back(const T& value) {
 
 template<typename T>
 bool Vector<T>::remove_first(const T& value) {
-    for(int i=0;i<size-1;i++){
+    if (capacity-size>200){
+        capacity-=100;
+    }
+    for(int i=0;i<size;i++){
         if (arr[i]==value){
             for (std::size_t j = i; j < size - 1; ++j) {
                 arr[j] = arr[j + 1];
