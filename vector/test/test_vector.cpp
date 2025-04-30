@@ -1,5 +1,4 @@
 #include "vector.hpp"
-#include "vector.cpp"
 #include <gtest/gtest.h>
 #include <string>
 
