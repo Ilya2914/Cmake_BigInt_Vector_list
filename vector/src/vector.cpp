@@ -31,8 +31,8 @@ std::size_t Vector<T>::get_size() const noexcept {
 
 template<typename T>
 bool Vector<T>::has_item(const T& value) const noexcept {
-    for (std::size_t i=0; i < size;i++ ){
-        if (arr[i]==value){
+    for (std::size_t i = 0; i < size; i++ ){
+        if (arr[i] == value){
             return true;
         }
     }
@@ -47,7 +47,7 @@ bool Vector<T>::insert(const std::size_t position, const T& value) {
     if (size==capacity){
         capacity+=100;
         T* new_arr = new T[capacity];
-        std::copy(arr,arr+size,new_arr);
+        std::copy(arr, arr+size, new_arr);
         delete[] arr;
         arr=new_arr;
     }
@@ -62,7 +62,7 @@ bool Vector<T>::insert(const std::size_t position, const T& value) {
 template<typename T>
 void Vector<T>::print() const noexcept {
     std::cout<<"[";
-    for(int i=0;i<size;i++){
+    for(int i = 0; i < size; i++){
         std::cout<<arr[i];
         if (i != size - 1) {
             std::cout << ", ";
@@ -73,10 +73,10 @@ void Vector<T>::print() const noexcept {
 
 template<typename T>
 void Vector<T>::push_back(const T& value) {
-    if (size==capacity){
+    if (size == capacity){
         capacity+=100;
         T* new_arr = new T[capacity];
-        std::copy(arr,arr+size,new_arr);
+        std::copy(arr, arr+size, new_arr);
         delete[] arr;
         arr=new_arr;
     }
@@ -88,8 +88,12 @@ template<typename T>
 bool Vector<T>::remove_first(const T& value) {
     if (capacity-size>200){
         capacity-=100;
+        T* new_arr = new T[capacity];
+        std::copy(arr, arr+size, new_arr);
+        delete[] arr;
+        arr=new_arr;
     }
-    for(int i=0;i<size;i++){
+    for(int i = 0; i < size; i++){
         if (arr[i]==value){
             for (std::size_t j = i; j < size - 1; ++j) {
                 arr[j] = arr[j + 1];
@@ -100,7 +104,3 @@ bool Vector<T>::remove_first(const T& value) {
     }
     return false;
 }
-template class biv::Vector<int>;
-template class biv::Vector<std::string>;
-template class biv::Vector<double>;
-template class biv::Vector<float>;

@@ -1,6 +1,5 @@
 build_*/
 lib/
-*.sh
 *.DS_Store
 *.exe
 *.ii
